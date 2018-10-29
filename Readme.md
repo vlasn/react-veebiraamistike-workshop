@@ -263,12 +263,28 @@ export default ({ description, title, done, onToggle }) => {
 ```
 
 Selleks, et `Todo` komponenti kastuada, peame selle `Todos` komponenti importima
-```jsx
-...
+```js
 import Todo from './Todo'
+```
+..Ja selle template seest returnima:
+```jsx harmony
+...
+{todos.map(todo => <Todo {...todo} key={todo.id} onToggle={() => onToggleTodo(todo.id)}/>)}
 ...
 ```
 
+See peaks nüüd kõik todo-d välja kuvama, aga tehtud todo-sid ära ei peida - lisame selleks enne `.map`-i filtri:
+```js
+// Laseme map-iq läbi ainult todod mille filterfunktsioon tagastab true, e. done !== true
+{todos.filter(t => !t.done).map(...)}
+```
+
+Nüüd peaks ekraanil näha olema vaid lõpetamata todo-d. Lõpetatud todo-d kaovad visuaalselt ära - kuidas neid kuvaks_
+Variant: Kasutame useState booleani peal ning loome nupu millega seda sisse-välja lülitada ning mille baasil filtreeritud, tehtud todo-de nimekirja kuvatakse.
+
+Kui tunni lõpuni veel aega on, lisame CSSifaili ja kirjutame oma komponentidele stiilid.
+
+Nende kasutusele võtmine on lihtne; komponendifailis `import './failinimi.css'`
 
 Veel juurde kirjutada:
 * Eraldi Todo komponent
