@@ -193,7 +193,7 @@ const useField = (initialValue = "", nativeProps = {}) => {
         // tagastame lisaks muule ühe objekti sees onChange ja value väärtused, 
         // et seda objekti mugavam inputi külge panna oleks.
         // Lisaks veel nativeProps objektis oleva.
-        bind: {
+        : {
             onChange: e => setStr(e.target.value),
             value: str,
             ...nativeProps
@@ -286,9 +286,5 @@ Kui tunni lõpuni veel aega on, lisame CSSifaili ja kirjutame oma komponentidele
 
 Nende kasutusele võtmine on lihtne; komponendifailis `import './failinimi.css'`
 
-Veel juurde kirjutada:
-* Eraldi Todo komponent
-* CSS (nt CSS Modules? Võib jääda viimaseks kui muidu ei jõua)
+Veel ideid:
 * useEffect hookist document.title muutmine
-* Tehtud todo-de peitmine ja näitamine (booleaniga useState)
-* ?
