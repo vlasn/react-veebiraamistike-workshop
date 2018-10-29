@@ -56,7 +56,7 @@ const Todos = function() {
     return (
         <div>
             <h3>Todos:</h3>
-            {todos.map(todo => <div>todo</div>)}
+            {todos.map(todo => <div>{todo}</div>)}
         </div>
     )
 }
@@ -244,6 +244,31 @@ const handleSubmit = (event) => {
 ```
 
 Ainus mis veel teha on, on Todo eraldi komponenti viia. Loome faili `Todo.js`:
+```jsx harmony
+// Alustuseks impordime jälle Reacti
+import React from "react"
+
+// Seejärel kirjutame expordi ja defineerime prop-id, mis komponent kaasa saab
+export default ({ description, title, done, onToggle }) => {
+// Tagastame `div`i, klassi nimega Todo, milles on eraldi `div`id pealkirja, kirjelduse ja nupu jaoks
+    return (
+        <div className="Todo">
+            <div className="Todo__title">{title}</div>
+            <div className="Todo__description">{description}</div>
+            // Nupule lisame funktsiooni, millega saab Todo'd olekut tehtud/tegemata muuta
+            <button className="Todo__toggle" onClick={onToggle}>Mark {done ? 'undone' : 'done'}</button>
+        </div>
+    )
+}
+```
+
+Selleks, et `Todo` komponenti kastuada, peame selle `Todos` komponenti importima
+```jsx
+...
+import Todo from './Todo'
+...
+```
+
 
 Veel juurde kirjutada:
 * Eraldi Todo komponent
