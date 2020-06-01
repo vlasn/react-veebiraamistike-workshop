@@ -193,7 +193,7 @@ const useField = (initialValue = "", nativeProps = {}) => {
         // tagastame lisaks muule ühe objekti sees onChange ja value väärtused, 
         // et seda objekti mugavam inputi külge panna oleks.
         // Lisaks veel nativeProps objektis oleva.
-        : {
+        bind: {
             onChange: e => setStr(e.target.value),
             value: str,
             ...nativeProps
